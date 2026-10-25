@@ -1,8 +1,11 @@
-# n8n on Railway
+# n8n + Postgres (Railway)
 
-Deploys n8n (Dockerfile based on `n8nio/n8n`) with Postgres.
+Fresh, self-contained n8n stack. Private repo: `.env` and `railway.env` hold generated secrets.
 
-1. Add a Postgres service to the project.
-2. Deploy this repo as a service, generate a public domain (port 5678).
-3. Set the variables from `.env.example`.
-4. Mount a volume at `/home/node/.n8n`.
+## Local
+`docker compose up -d` then open http://localhost:5678
+
+## Railway (new project)
+1. Add a **Postgres** service (name it `Postgres`).
+2. New service from this repo. Settings: public domain on port 5678, volume at `/home/node/.n8n`.
+3. Paste `railway.env` into the n8n service Variables (Raw Editor). Deploy.
